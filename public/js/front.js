@@ -2034,6 +2034,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Posts",
   data: function data() {
@@ -2115,6 +2120,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37834,7 +37847,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", [_c("router-view")], 1)
+  return _c("main", { staticClass: "container" }, [_c("router-view")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -37861,48 +37874,54 @@ var render = function () {
   return _c(
     "div",
     _vm._l(_vm.posts, function (post) {
-      return _c(
-        "div",
-        { key: post.id },
-        [
-          _c("h3", [_vm._v(_vm._s(post.title))]),
-          _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(post.content))]),
-          _vm._v(" "),
-          post.tags.length > 0
-            ? _c("div", [
-                _c(
-                  "ul",
-                  [
-                    _c("h3", [_vm._v("Tag:")]),
-                    _vm._v(" "),
-                    _vm._l(post.tags, function (tag) {
-                      return _c("li", { key: tag.id }, [
-                        _vm._v(
-                          "\n                    " +
-                            _vm._s(tag.name) +
-                            "\n                "
-                        ),
-                      ])
-                    }),
-                  ],
-                  2
-                ),
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              attrs: {
-                to: { name: "single-post", params: { slug: post.slug } },
+      return _c("div", { key: post.id, staticClass: "my-5 p-3 card" }, [
+        _c("div", { staticClass: "card-header" }, [
+          _c("h3", { staticClass: "text-capitalize" }, [
+            _vm._v(" " + _vm._s(post.title)),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _c("p", [_vm._v(_vm._s(post.content))]),
+            _vm._v(" "),
+            post.tags.length > 0
+              ? _c("div", [
+                  _c(
+                    "ul",
+                    [
+                      _c("h3", [_vm._v("Tag:")]),
+                      _vm._v(" "),
+                      _vm._l(post.tags, function (tag) {
+                        return _c("li", { key: tag.id }, [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(tag.name) +
+                              "\n                    "
+                          ),
+                        ])
+                      }),
+                    ],
+                    2
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              {
+                attrs: {
+                  to: { name: "single-post", params: { slug: post.slug } },
+                },
               },
-            },
-            [_vm._v("\n            Visualizza post\n        ")]
-          ),
-        ],
-        1
-      )
+              [_vm._v("\n                Visualizza post\n            ")]
+            ),
+          ],
+          1
+        ),
+      ])
     }),
     0
   )
@@ -37992,7 +38011,27 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("h2", [_vm._v(_vm._s(_vm.post.title))])])
+  return _c("div", [
+    _c("h2", [_vm._v(_vm._s(_vm.post.title))]),
+    _vm._v(" "),
+    _vm.post.tags.length > 0
+      ? _c("div", [
+          _c("h3", [_vm._v("Tag:")]),
+          _vm._v(" "),
+          _c(
+            "ul",
+            _vm._l(_vm.post.tags, function (tag) {
+              return _c("li", { key: tag.id }, [
+                _vm._v(
+                  "\n                " + _vm._s(tag.name) + "\n            "
+                ),
+              ])
+            }),
+            0
+          ),
+        ])
+      : _vm._e(),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
