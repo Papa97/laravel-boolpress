@@ -1,14 +1,21 @@
 <template>
-    <main class="container">
-        <router-view></router-view>
+    <main class="main">
+        <div class="container">
+            <router-view :key="$route.path"></router-view>
+        </div>
     </main>
 </template>
 
 <script>
 export default {
     name: "Main",
-    data() {},
 };
 </script>
 
-<style></style>
+<style>
+.main {
+    background-color: #495057;
+    margin-top: 0px;
+    padding-bottom: 1px;
+}
+</style>

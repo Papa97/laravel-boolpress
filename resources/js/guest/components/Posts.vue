@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div v-for="post in posts" :key="post.id" class="my-5 p-3 card">
-            <div class="card-header">
+        <div v-for="post in posts" :key="post.id" class="my-5 p-3 card post">
+            <div>
                 <h3 class="text-capitalize"> {{ post.title }}</h3>
             </div>
             <div class="card-body">
@@ -42,4 +42,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang='scss' scoped>
+.post {
+    background-color : #F8F9FA;
+}
+</style>
